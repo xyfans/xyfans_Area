@@ -1,0 +1,125 @@
+shenyg@njrst.com.cn
+
+1-版本控制管理工具
+  集中式版本控制管理
+    CVS SVN ClearCase
+  分布式版本控制管理
+    Git
+
+Unix 操作系统,收费  不开源  
+Linux， linus（作者），维护更新Linux内核代码，BitKeeper
+GitHub
+
+
+git最初是为了管理Linux内核代码而诞生的
+
+1-Shell指令
+  Linux中文件夹也叫作目录
+  pwd    cd    ls 
+  pwd:print working directory
+      打印当前所在的路径
+  ls:显示当前目录中所有非隐藏文件或目录
+      蓝色（后缀/）：表示目录/文件夹
+      白色：文件
+      绿色（后缀*）：快捷方式（可执行文件）
+      .lnk:超链接/快捷方式
+  cd：change directory
+  ls -a 显示所有文件或目录
+  ls -lt 以列表形式 按时间顺序显示非隐藏文件或目录的详细信息
+      切换工作目录
+      cd a 切换到当前目录下的a目录去
+      cd .. 切换到上级目录区
+      cd /a/a/s 切换到具体自定义目录
+      cd ~  ~表示当前登录用户的主目录
+            该指令表示切换到主目录去 
+      cd 局对路径  /c/sad/ad  
+  2-mkdir
+      make directory 新建文件夹/目录
+      mkdir 目录的路径
+      mkdir a 在当前路径下新建目录a
+            a已经存在的话 报错
+      mkdir a/b 在a目录下创建目录b
+            如果父级目录不存在 报错
+      mkdir -p a/b 在a目录下创建目录b 如果a目录不存在 就先创建a再创建b
+
+  3-touch
+      新建文件
+      touch 文件路径
+      touch HUH.txt  在当前路径创建一个txt文件
+        如果touch的文件的已经存在，就不会创建新文件 而是修改文件的最后访问时间
+        如果touch的是一个文件夹， 则修改文件夹的最后访问时间
+  4-rmdir
+      rmdir directory删除文件夹/目录
+            只能删除空目录
+      rmdir 文件路径
+      rmdir .a/b/c 删除a下的b下的c文件夹，a,b文件夹依然存在
+  5-rm
+      remove 删除文件或非空目录
+      rm 文件的路径 删除指定文件的路径
+      rm -rf 目录的路径 删除非空目录
+  6-vi 
+      文本编辑器
+      vi  文件名路径 打开某个文件里面输入数据
+      进入vi界面后 首先进入的事命令行模式 此时不能输入数据
+      输入a/i可以进入输入模式 此时可以输入数据
+      输入完成后 按esc退出输入模式 重新进入命令模式 
+      输入:wq 保存输入的内容并退出vi界面
+          wq  write and quit 保存退出
+          w   保存不退出  还处于vi界面
+          q   在没有修改的情况下直接退出
+          q!  强制退出 不保存
+      PS:
+        输入数据还可以用echo指令
+        echo 数据 > 1.txt   覆盖模式  输入的内容覆盖之前的内容
+        echo 数据 >> 1.txt   追加模式  输入的内容会追加内容
+  7-cat
+      catch 读取文件的内容
+      cat 文件名路径
+
+
+Git的使用
+      所有的git命令都是以git开头的
+      1-配置个人用户信息(只需要配置一次)
+        git config --global user.name "你的用户名"
+        git config --global user.email "你的邮箱"
+      2-初始化本地仓库
+        先进入目标文件夹
+        使用指令:git init
+            此时在目标文件夹中会自动生成一个隐藏文件夹 .git
+            同事 命令行中 路径的最后会出现(master)
+      3-查看本地仓库的状态
+        git status
+      4-提交
+        -提交到暂存区
+          git add 文件名
+          git add -A 将工作区中所有有修改的文件一次性全部提交到暂存区
+        -将暂存区的内容提交到master
+          git commit -m "提交信息"
+        
+
+练习：
+    -在桌面右击git bash
+      后续操作全部使用命令进行
+    -切换到D盘目录下 新建文件夹test 切换进去
+    -在test下面新建文件夹a，b/c,e/d/f
+      新建文件 1.txt,b/2.txt
+    -切换进去d文件夹，查看当前目录 删除f文件夹
+    -切换回test下删除e文件夹
+    -使用vi 修改1.txt内容 使用echo修改2.txt内容
+    -查看1.txt，2.txt文件内容
+    -删除a文件夹
+    -初始化test文件夹为本地仓库
+    -查看本地仓库的状态
+    -将本地仓库的内容提交到master里\
+
+
+
+
+
+
+
+   四个状态 三大区域
+    撤回提交的修改
+      撤回工作区的修改
+      撤回暂存区的修改
+      撤回master的修改
